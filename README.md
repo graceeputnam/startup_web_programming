@@ -1,5 +1,4 @@
-# Your startup name here
-This is my first modification in github
+TV Ratings
 
 [My Notes](notes.md)
 
@@ -19,19 +18,19 @@ A brief description of the application here. Lorem ipsum dolor sit amet, consect
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
 - [ ] Description of key features
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+In this day and age a new TV show comes out on the daily. Understandably, we are confused lost and in need of direction when it comes to enjoying shows. The TV Rating application allows you and your friends to rate your favorite TV shows and share them with each other. When you write your rating, you can then post it for your freinds and family to enjoy and take into consideration. At the end of the day, the TV Rating applicaiton will help you as you navigate the crazy world of TV shows! 
 
 ### Design
 
-![Design image](placeholder.png)
+![Design image](https://github.com/graceeputnam/startup/blob/main/Screen%20Shot%202025-09-10%20at%2011.05.06%20PM.png?raw=true)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -44,20 +43,22 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure login over HTTPS
+- Ability to create new TV show ratings
+- Display of previous ratings 
+- Ability to like other's ratings
+- Ratings are persistently stored
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Uses correct HTML structure for the application. There will be two pages, one for login and one that shows old ratings and where you can create new ratings. 
+- **CSS** - Styling that uses fun colors that indicate the ratings. 
+- **React** - Provides login, rating input display, inputing ratins, display other users ratings, and use of React for routing and components. 
+- **Service** - Backend service with endpoints for: login, retrieving old reviews, and submitting new reviews.
+- **DB/Login** - Store users, ratings and TV shows in database. Register and login users. Credentials will be securely stored in the database and also old ratings. You can't comment on other ratings unless authenticated. 
+- **WebSocket** - As each person rate shows, the ratings are broadcasted to all their friends. 
 
 ## 🚀 AWS deliverable
 
