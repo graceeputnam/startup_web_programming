@@ -35,21 +35,21 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://tvrating.click).
 
 ## 🚀 HTML deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I built the HTML base for my application.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - I made 4 HTML pages with the ability to sign in, rate a TV show, see ratings of others, and find a description of the app.
+- [x] **Proper HTML element usage** - I properly used many differnt tags to create my deliverable.
+- [x] **Links** - Each page contains links that link to the other 3.
+- [x] **Text** - I added description on the about page, an API generated quote mock up and titles to all the features.
+- [x] **3rd party API placeholder** - I added a "randomly generated" TV show photo and quote.
+- [x] **Images** - I added a TV show photo to the about section.
+- [x] **Login placeholder** - I added a place to login and create an account.
+- [x] **DB data placeholder** - I have an input box for login which needs to be stored in a database. 
+- [x] **WebSocket placeholder** - The ratings section has real time ratings that can be viewed.
 
 ## 🚀 CSS deliverable
 
