@@ -28,24 +28,30 @@
     </header>
 
     <main>
-      <h1>TIME FOR TV RATINGS</h1>
-      <form method="get" action="play.html">
-        <div>
-          <span>@</span>
-          <input type="text" placeholder="your@email.com" />
-        </div>
-        <div>
-          <span>🔒</span>
-          <input type="password" placeholder="password" />
-        </div>
-        <button type="submit">Login</button>
-        <button type="submit">Create</button>
-      </form>
+      <div class="raters">
+        Account:
+        <span class="rater-name">Mystery player</span>
+      </div>
+      <ul class="notification">
+        <li class="rater-name">Tim rated a new show</li>
+        <li class="rater-name">Ada liked your rating</li>
+        <li class="rater-name">Jim rated a new show</li>
+      </ul>
+
+      <!-- More formatting with old style HTML -->
+      <br />
+
+      <div>
+        <label for="count">Rating</label>
+        <input type="text" id="count" value="--" readonly />
+      </div>
+
+      <br />
     </main>
 
     <footer>
       <hr />
-      <span class="text-reset">Gracee Putnam</span>
+      <span class="text-reset"Gracee Putnam</span>
       <br />
       <a href="https://github.com/graceeputnam">GitHub</a>
     </footer>
