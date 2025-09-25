@@ -45,7 +45,7 @@ For this deliverable I built the HTML base for my application.
 - [x] **Proper HTML element usage** - I properly used many differnt tags to create my deliverable.
 - [x] **Links** - Each page contains links that link to the other 3.
 - [x] **Text** - I added description on the about page, an API generated quote mock up and titles to all the features.
-- [x] **3rd party API placeholder** - I added a "randomly generated" TV show photo and quote.
+- [x] **3rd party API placeholder** - I added a "randomly generated" tv show quote.
 - [x] **Images** - I added a TV show photo to the about section.
 - [x] **Login placeholder** - I added a place to login and create an account.
 - [x] **DB data placeholder** - I have an input box for login which needs to be stored in a database. 
