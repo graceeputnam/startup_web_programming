@@ -1,15 +1,19 @@
 .picture-box {
-    height: calc(100px + 1em);
     margin-bottom: 1em;
     padding: 0.5em;
     background: rgb(86, 89, 93);
     border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
   }
   
   .quote-box {
+    width: 100%;            /* stretch across the container */
     margin-top: 1em;
-    padding: 0.5em;
+    padding: 0.5em 0;       /* padding only top/bottom */
     border-radius: 5px;
+    background: #f0f0f0;    /* optional background */
+    display: block;
   }
   
   .quote {
@@ -26,7 +30,12 @@
   }
   
   #picture img {
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
+    max-width: 100%;      /* never overflow the box */
+    max-height: 300px;    /* limit vertical size */
+    display: inline-block;
+    border: 4px solid rgb(86, 89, 93); /* adjust thickness & color */
+    border-radius: 8px;
   }
   
