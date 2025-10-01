@@ -38,7 +38,7 @@
 
 
 .player-name {
-  color: rgb(118, 190, 210);
+  color: rgb(255, 255, 255);
 }
 
 #player-messages {
@@ -56,12 +56,12 @@
 }
 
 .player-event {
-  color: rgb(165, 220, 235);
+  color: rgb(70, 150, 231);
   font-weight: bold;
 }
 
 .system-event {
-  color: rgb(221, 148, 40);
+  color: rgb(213, 213, 213);
   font-weight: bold;
 }
 
