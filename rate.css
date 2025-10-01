@@ -3,30 +3,66 @@
 }
 
 .players {
-  flex: 1;
-  width: 100%;
-  padding: 0.5em;
+  background-color: #1c1c1c; /* dark card */
+  border-radius: 10px;
+  padding: 1em;
+  margin: 1em auto; /* centers it */
+  width: 300px; /* fixed width so it doesn’t collapse */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
+
+.players-feed {
+  position: fixed;      
+  bottom: 40px;
+  left: 20px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.7); 
+  border-radius: 10px;
+  color: white;
+  font-size: 0.9em;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  z-index: 1000;        
+}
+
+.players-feed .player-header {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.player-header {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: #76bed2;
+}
+
 
 .player-name {
   color: rgb(118, 190, 210);
 }
 
 #player-messages {
-  padding-top: 0.25em;
-  opacity: 0.7;
+  max-height: 200px;     
+  overflow-y: auto;
+  opacity: 0.9;
 }
 
 .event {
-  color: rgb(69, 69, 69);
+  background-color: #2a2a2a;
+  padding: 0.5em;
+  border-radius: 5px;
+  color: #dcdcdc;
+  font-size: 0.95em;
 }
 
 .player-event {
   color: rgb(165, 220, 235);
+  font-weight: bold;
 }
 
 .system-event {
   color: rgb(221, 148, 40);
+  font-weight: bold;
 }
 
 .button-container {
@@ -70,7 +106,6 @@
   border-radius: 50%;
   width: 200px;
   height: 200px;
-  background-color: black;
   padding: 2em;
   display: flex;
   align-items: center;
@@ -103,4 +138,58 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.rating-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: #111; /* dark background */
+  padding: 2em;
+  border-radius: 1em;
+  width: 300px;
+}
+
+.show-input {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  border: 1px solid #555;
+  font-size: 1em;
+  background-color: #222;
+  color: #fff;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.2em;
+  margin-bottom: 1em;
+  direction: rtl; /* flip order so highest star is on the left */
+}
+
+.stars input {
+  display: none; /* hide the radio buttons */
+}
+
+.stars label {
+  font-size: 2em;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+  color: gold;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
 }

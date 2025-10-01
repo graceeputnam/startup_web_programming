@@ -41,24 +41,39 @@
     </header>
 
     <main class="bg-secondary">
-      <div class="players">
-        Player
-        <span class="player-name">Mystery player</span>
-        <div id="player-messages">
-          <div class="event"><span class="player-event">Tim</span> rated a new show</div>
-          <div class="event"><span class="player-event">Ada</span> liked your rating</div>
-          <div class="event"><span class="system-event">Jim</span> rated a new show</div>
-        </div>
+      <div class="players-feed"> 
+      <div class="player-header">
+        TV ENJOYER: <span class="player-name">Chloe</span>
+      </div>
+      <div id="player-messages">
+        <div class="event"><span class="player-event">Tim</span> rated a new show</div>
+        <div class="event"><span class="player-event">Ada</span> rated a new show</div>
+        <div class="event"><span class="system-event">Jim</span> liked your rating</div>
+      </div>
       </div>
 
-      <div class="game">
-          <div class="controls center">
-            <div class="game-name">TV RATING<sup>&reg;</sup></div>
-            <div class="score center">--</div>
-            <button class="btn btn-primary">Reset</button>
-          </div>
-        </div>
+      <div class="rating-container center">
+      <h2 class="game-name">Rate a TV Show</h2>
+      
+      <!-- TV Show Input -->
+      <input type="text" class="show-input" placeholder="Enter TV show name" />
+
+      <!-- 5-Star Rating -->
+      <div class="stars">
+        <input type="radio" id="star5" name="rating" value="5" />
+        <label for="star5">&#9733;</label>
+        <input type="radio" id="star4" name="rating" value="4" />
+        <label for="star4">&#9733;</label>
+        <input type="radio" id="star3" name="rating" value="3" />
+        <label for="star3">&#9733;</label>
+        <input type="radio" id="star2" name="rating" value="2" />
+        <label for="star2">&#9733;</label>
+        <input type="radio" id="star1" name="rating" value="1" />
+        <label for="star1">&#9733;</label>
       </div>
+
+      <button class="btn btn-primary submit-btn">Submit Rating</button>
+    </div>
     </main>
 
   <footer class="bg-dark text-white-50">
