@@ -55,12 +55,12 @@ For this deliverable I built the HTML base for my application.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** 
+- [x] **Navigation elements** - I added styled buttons to take you to each part of my application
+- [x] **Responsive to window resizing** - My app works on all window sizes
+- [x] **Application elements** - Used good styling and added stars for the rating system
+- [x] **Application text content** - I used consistent fonts
+- [x] **Application images** - I sized my image and it's border to work on all devices and look proportional
 
 ## 🚀 React part 1: Routing deliverable
 
