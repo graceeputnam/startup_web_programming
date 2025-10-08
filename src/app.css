@@ -9,6 +9,7 @@ header {
 }
   
 main {
+  padding-top: 70px;
   flex: 1 calc(100vh - 110px);
   display: flex;
   flex-direction: column;
