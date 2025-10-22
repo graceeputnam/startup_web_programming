@@ -1,7 +1,7 @@
 import React from 'react';
 import './rate.css';
 
-//import { Players } from "./players";
+import { Players } from "./players";
 import { RateGame } from "./rateGame"
 
 
