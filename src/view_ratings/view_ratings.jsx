@@ -42,6 +42,7 @@ export function Scores() {
           <tr>
             <th>#</th>
             <th>Name</th>
+            <th>Show</th>
             <th>Rating</th>
             <th>Date</th>
           </tr>
