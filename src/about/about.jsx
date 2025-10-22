@@ -13,7 +13,7 @@ export function About(props) {
   }, []);
 
   return (
-    <main class="container-fluid bg-secondary text-center">
+    <main className="container-fluid bg-secondary text-center">
       <div>
       <div id="picture" className= 'picture-box'>
         <img src={imageUrl} alt='random image' /> 
@@ -22,9 +22,9 @@ export function About(props) {
         Help out your family and friends by rating the shows out of 5 and they will be grateful!
         </p>
 
-        <div id="quote" class="quote-box bg-light text-dark">
-          <p class="quote">{quote}</p>
-          <p class="author">{quoteAuthor}</p>
+        <div id="quote" className="quote-box bg-light text-dark">
+          <p className="quote">{quote}</p>
+          <p className="author">{quoteAuthor}</p>
         </div>
       </div>
     </main>

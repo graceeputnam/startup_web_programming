@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
-import { Rate } from './rate/rate';
+import { RateGame } from './rate/rate';
 import { View_ratings } from './view_ratings/view_ratings';
 import { About } from './about/about'
 import { AuthState } from './login/authState';
@@ -14,7 +14,6 @@ function App() {
   const [authState, setAuthState] = React.useState(currentAuthState);
 
   return (
-    <BrowserRouter>
       <div className='body bg-dark text-light'>
         <header className='container-fluid'>
           <nav className='navbar fixed-top navbar-dark'>
@@ -23,7 +22,7 @@ function App() {
             </div>
             <menu className='navbar-nav'>
               <li className='nav-item'>
-                <NavLink className='nav-link' to=''>
+                <NavLink className='nav-link' to='/'>
                   Login
                 </NavLink>
               </li>
@@ -63,9 +62,8 @@ function App() {
                 }}
               />
             }
-            exact
           />
-          <Route path='/rate' element={<Rate userName={userName}/>} />
+          <Route path='/rate' element={<RatGame userName={userName}/>} />
           <Route path='/view_ratings' element={<View_ratings />} />
           <Route path='/about' element={<About />} />
           <Route path='*' element={<NotFound />} />
@@ -78,7 +76,6 @@ function App() {
       </div>
     </footer>
     </div>
-    </BrowserRouter>
     );
 }
 
