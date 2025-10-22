@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
-import { RateGame } from './rate/rate';
-import { View_ratings } from './view_ratings/view_ratings';
+import { Rate } from './rate/rate';
+import { Scores } from './view_ratings/view_ratings';
 import { About } from './about/about'
 import { AuthState } from './login/authState';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -63,8 +63,8 @@ function App() {
               />
             }
           />
-          <Route path='/rate' element={<RatGame userName={userName}/>} />
-          <Route path='/view_ratings' element={<View_ratings />} />
+          <Route path='/rate' element={<Rate userName={userName}/>} />
+          <Route path='/view_ratings' element={<Scores />} />
           <Route path='/about' element={<About />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
