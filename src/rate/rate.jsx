@@ -1,19 +1,22 @@
 import React from 'react';
 import './rate.css';
 
+//import { Players } from "./players";
+import { RateGame } from "./rateGame"
+
+
+ export function Rate(props) {
+  return (
+    <main className='bg-secondary'>
+      <Players userName={props.userName} />
+      <RateGame userName={props.userName} />
+    </main>
+  );
+}
+
+
 export function Rate() {
   return (
-    <main className="bg-secondary">
-      <div className="players-feed"> 
-      <div className="player-header">
-        TV ENJOYER: <span className="player-name">Chloe</span>
-      </div>
-      <div id="player-messages">
-        <div className="event"><span className="player-event">Tim</span> rated a new show</div>
-        <div className="event"><span className="player-event">Ada</span> rated a new show</div>
-        <div className="event"><span className="system-event">Jim</span> liked your rating</div>
-      </div>
-      </div>
 
       <div className="rating-container center">
       <h2 className="game-name">Rate a TV Show</h2>
