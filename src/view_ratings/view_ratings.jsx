@@ -1,12 +1,10 @@
 import React from 'react';
-
 import './view_ratings.css';
 
 export function Scores() {
   const [scores, setScores] = React.useState([]);
 
-  // Demonstrates calling a service asynchronously so that
-  // React can properly update state objects with the results.
+  // Load scores from localStorage on mount
   React.useEffect(() => {
     const scoresText = localStorage.getItem('scores');
     if (scoresText) {
@@ -14,14 +12,15 @@ export function Scores() {
     }
   }, []);
 
-  // Demonstrates rendering an array with React
+  // Render scores table
   const scoreRows = [];
   if (scores.length) {
-    for (const [i, score] of scores.entries()) {
+for (const [i, score] of scores.entries()) {
       scoreRows.push(
         <tr key={i}>
-          <td>{i}</td>
+          <td>{i + 1}</td>
           <td>{score.name.split('@')[0]}</td>
+          <td>{score.show}</td>
           <td>{score.score}</td>
           <td>{score.date}</td>
         </tr>
@@ -29,16 +28,16 @@ export function Scores() {
     }
   } else {
     scoreRows.push(
-      <tr key='0'>
-        <td colSpan='4'>Be the first to score</td>
+      <tr key="0">
+        <td colSpan="5">Be the first to rate a show!</td>
       </tr>
     );
   }
 
   return (
-    <main className='container-fluid bg-secondary text-center'>
-      <table className='table table-warning table-striped-columns'>
-        <thead className='table-dark'>
+    <main className="container-fluid bg-secondary text-center">
+      <table className="table table-warning table-striped-columns">
+        <thead className="table-dark">
           <tr>
             <th>#</th>
             <th>Name</th>
@@ -47,8 +46,9 @@ export function Scores() {
             <th>Date</th>
           </tr>
         </thead>
-        <tbody id='ratings'>{scoreRows}</tbody>
+        <tbody id="ratings">{scoreRows}</tbody>
       </table>
     </main>
   );
 }
+
