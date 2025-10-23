@@ -5,7 +5,7 @@ import './app.css';
 
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
       import { Login } from './login/login';
-      import { Rate } from './rate/rate';
+      import { Play } from './rate/rate';
       import { View_ratings } from './view_ratings/view_ratings';
       import { About } from './about/about';
       import { AuthState } from './login/authState';
@@ -66,7 +66,7 @@ export default function App() {
             exact
           />
   <Route path='/' element={<Login />} exact />
-  <Route path='/rate' element={<Rate />} />
+  <Route path='/rate' element={<Play />} />
   <Route path='/view_ratings' element={<View_ratings />} />
   <Route path='/about' element={<About />} />
   <Route path='*' element={<NotFound />} />
