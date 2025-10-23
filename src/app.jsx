@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { Rate } from './rate/rate';
 import { Scores } from './view_ratings/view_ratings';
