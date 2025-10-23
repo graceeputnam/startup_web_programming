@@ -31,9 +31,9 @@ export function Players(props) {
     for (const [i, event] of events.entries()) {
       let message = 'unknown';
       if (event.type === GameEvent.End) {
-        message = `scored ${event.value.score}`;
+        message = `gave a rating of ${event.value.score}`;
       } else if (event.type === GameEvent.Start) {
-        message = `started a new game`;
+        message = `rated a new show`;
       } else if (event.type === GameEvent.System) {
         message = event.value.msg;
       }
