@@ -4,6 +4,7 @@ import './view_ratings.css';
 
 export function View_ratings() {
   const [scores, setScores] = React.useState([]);
+  const userName = localStorage.getItem("userName")
 
   // Demonstrates calling a service asynchronously so that
   // React can properly update state objects with the results.
@@ -22,7 +23,7 @@ export function View_ratings() {
         <tr key={i}>
           <td>{i}</td>
           <td>{score.show}</td>
-          <td>{score.name}</td>
+          <td>{userName}</td>
           <td>{score.score}</td>
           <td>{score.date}</td>
         </tr>
