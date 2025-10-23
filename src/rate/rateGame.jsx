@@ -15,7 +15,24 @@ export function RateGame(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // you can process the rating/showName here (ex: send to backend, display it, etc)
+    const newScore = {
+    show: showName,
+    name: userName,
+    score: rating,
+    date: new Date().toLocaleString()
+  };
+
+  // Read existing ratings from localStorage
+  const scoresText = localStorage.getItem('scores');
+  let scores = [];
+  if (scoresText) {
+    scores = JSON.parse(scoresText);
+  }
+
+  // Add the new score and save
+  scores.push(newScore);
+  localStorage.setItem('scores', JSON.stringify(scores));
+
     alert(`You rated "${showName}" with ${rating} star(s)!`);
   };
 
@@ -30,7 +47,7 @@ export function RateGame(props) {
         onChange={handleShowInput}
       />
       <div className="stars">
-        {[5, 4, 3, 2, 1].map((star) => (
+        {[1, 2, 3, 4, 5].map((star) => (
           <React.Fragment key={star}>
             <input
               type="radio"

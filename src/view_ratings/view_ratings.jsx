@@ -22,7 +22,7 @@ export function View_ratings() {
         <tr key={i}>
           <td>{i}</td>
           <td>{score.show}</td>
-          <td>{score.name.split('@')[0]}</td>
+          <td>{score.name}</td>
           <td>{score.score}</td>
           <td>{score.date}</td>
         </tr>
