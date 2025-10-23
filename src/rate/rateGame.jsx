@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
-export function RateGame() {
+import { GameEvent, GameNotifier } from './gameNotifier';
+import './rateGame.css';
+
+
+export function RateGame(props) {
+  const userName = props.userName;
   const [showName, setShowName] = useState('');
   const [rating, setRating] = useState(null);
 
