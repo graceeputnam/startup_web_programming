@@ -1,69 +1,83 @@
 import React, { useState } from 'react';
+import './rate.css';
+import { GameNotifier, GameEvent } from './gameNotifier';
 
-import { GameEvent, GameNotifier } from './gameNotifier';
-import './rateGame.css';
+function StarRating({ rating, setRating }) {
+  return (
+    <div className="stars">
+      {[1, 2, 3, 4, 5].map(star => (
+        <label
+          key={star}
+          htmlFor={`star${star}`}
+          style={{
+            cursor: 'pointer',
+            color: rating >= star ? '#FFD700' : '#999',
+            fontSize: '2rem'
+          }}
+          onClick={() => setRating(star)}
+        >
+          &#9733;
+        </label>
+        ))}
+    </div>
+  );
+}
 
-
-export function RateGame(props) {
-  const userName = props.userName;
+export function RateGame({ userName }) {
   const [showName, setShowName] = useState('');
-  const [rating, setRating] = useState(null);
-
-  const handleShowInput = (e) => setShowName(e.target.value);
-
-  const handleRatingChange = (e) => setRating(Number(e.target.value));
+  const [rating, setRating] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newScore = {
-    show: showName,
-    name: userName,
-    score: rating,
-    date: new Date().toLocaleString()
-  };
-
-  // Read existing ratings from localStorage
-  const scoresText = localStorage.getItem('scores');
-  let scores = [];
-  if (scoresText) {
-    scores = JSON.parse(scoresText);
-  }
-
-  // Add the new score and save
-  scores.push(newScore);
-  localStorage.setItem('scores', JSON.stringify(scores));
-
-    alert(`You rated "${showName}" with ${rating} star(s)!`);
+    setSubmitted(true);
+    // Save to localStorage for rating history
+    const scoresArr = JSON.parse(localStorage.getItem('scores') || '[]');
+    scoresArr.unshift({
+      name: userName,
+      show: showName,
+      score: rating,
+      date: new Date().toLocaleString()
+    });
+localStorage.setItem('scores', JSON.stringify(scoresArr));
+    // Broadcast to community feed
+    GameNotifier.broadcastEvent(
+      userName,
+      GameEvent.End,
+      { name: showName, score: rating, date: new Date().toLocaleString() }
+    );
+    setShowName('');
+    setRating(0);
   };
 
   return (
     <div className="rating-container center">
-      <h2 className="game-name">Rate a TV Show</h2>
-      <input
-        type="text"
-        className="show-input"
-        placeholder="Enter TV show name"
-        value={showName}
-        onChange={handleShowInput}
-      />
-      <div className="stars">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <React.Fragment key={star}>
-            <input
-              type="radio"
-              id={`star${star}`}
-              name="rating"
-              value={star}
-              checked={rating === star}
-              onChange={handleRatingChange}
-            />
-            <label htmlFor={`star${star}`}>&#9733;</label>
-          </React.Fragment>
-        ))}
-      </div>
-      <button className="btn btn-primary submit-btn" onClick={handleSubmit}>
-        Submit Rating
-      </button>
+      <h2>Rate a TV Show</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="show-input"
+          placeholder="Enter TV show name"
+          value={showName}
+          onChange={e => setShowName(e.target.value)}
+          style={{ marginBottom: 12 }}
+        />
+        <StarRating rating={rating} setRating={setRating} />
+        <button
+          className="btn btn-primary submit-btn"
+          type="submit"
+          disabled={!showName || rating === 0}
+        >
+          Submit Rating
+        </button>
+      </form>
+{submitted && (
+        <div style={{ marginTop: 16 }}>
+          Thank you! Your rating has been submitted.
+        </div>
+      )}
     </div>
   );
 }
+
+
