@@ -1,0 +1,71 @@
+.rating-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertical center */
+  align-items: center;      /* horizontal center */
+  background: #222;         /* optional for subtle background */
+  box-sizing: border-box;
+}
+
+/* Title styling and centering */
+.game-name {
+  margin-bottom: 1em;
+  text-align: center;
+  color: #fff; /* white text for contrast */
+  font-size: 2em;
+}
+
+.show-input {
+  display: block;
+  margin-bottom: 1.2em;
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  border: 1px solid #555;
+  text-align: center;
+}
+
+/* Stars row styling */
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5em;
+}
+
+.stars input[type="radio"] {
+  display: none;
+}
+
+/* Style the star labels */
+.stars label {
+  font-size: 2em;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.stars input[type="radio"]:checked + label {
+  color: #ffc107; /* gold */
+}
+
+/* Button styling */
+.submit-btn {
+  font-size: 1.1em;
+  padding: 0.5em 1.8em;
+  border-radius: 8px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  margin-top: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+

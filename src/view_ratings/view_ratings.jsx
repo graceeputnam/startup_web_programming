@@ -40,6 +40,7 @@ for (const [i, score] of scores.entries()) {
         <thead className="table-dark">
           <tr>
             <th>#</th>
+            <th>Show</th>
             <th>Name</th>
             <th>Show</th>
             <th>Rating</th>
