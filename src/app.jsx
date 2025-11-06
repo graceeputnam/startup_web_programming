@@ -19,7 +19,7 @@ function App() {
         <header className='container-fluid'>
           <nav className='navbar fixed-top navbar-dark'>
             <div className='navbar-brand'>
-              TV RATING<sup>&reg;</sup>
+              TV RATING
             </div>
             <menu className='navbar-nav'>
               <li className='nav-item'>
