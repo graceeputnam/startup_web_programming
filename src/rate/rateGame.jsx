@@ -28,23 +28,30 @@ export function RateGame({ userName }) {
   const [rating, setRating] = useState(0);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [allowPlayer, setAllowPlayer] = React.useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
     // Save to localStorage for rating history
-    const scoresArr = JSON.parse(localStorage.getItem('scores') || '[]');
-    scoresArr.unshift({
+    const ratingData = {
       name: userName,
       show: showName,
       score: rating,
       date: new Date().toLocaleString()
-    });
-localStorage.setItem('scores', JSON.stringify(scoresArr));
+    };
+
+    await fetch('/api/score', {
+      method: 'POST', 
+      headers: {"Content-Type": 'application/json'},
+      body: JSON.stringify(ratingData)
+    })
+
     // Broadcast to community feed
     GameNotifier.broadcastEvent(
       userName,
-      GameEvent.End,
-      { name: showName, score: rating, date: new Date().toLocaleString() }
+      GameEvent.End, ratingData
+      
     );
     setShowName('');
     setRating(0);
