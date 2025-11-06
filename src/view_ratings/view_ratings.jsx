@@ -4,13 +4,14 @@ import './view_ratings.css';
 export function Scores() {
   const [scores, setScores] = React.useState([]);
 
-  // Load scores from localStorage on mount
+  
   React.useEffect(() => {
-    const scoresText = localStorage.getItem('scores');
-    if (scoresText) {
-      setScores(JSON.parse(scoresText));
-    }
-  }, []);
+      fetch('/api/scores')
+        .then((response) => response.json())
+        .then((scores) => {
+          setScores(scores);
+        });
+    }, []);
 
   // Render scores table
   const scoreRows = [];
