@@ -5,7 +5,6 @@ const express = require('express');
 const uuid = require('uuid');
 const app = express();
 const DB = require('./database.js');
-app.use(express.static('public'));
 const authCookieName = 'token';
 
 
@@ -18,6 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Serve up the front-end static content hosting
+app.use(express.static('public'));
 
 // Router for service endpoints
 var apiRouter = express.Router();
