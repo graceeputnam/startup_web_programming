@@ -3,20 +3,24 @@ const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('simon');
-const userCollection = db.collection('user');
-const scoreCollection = db.collection('score');
+let db;
+let userCollection;
+let scoreCollection;
 
 // This will asynchronously test the connection and exit the process if it fails
-(async function testConnection() {
+async function initDb() {
   try {
-    await db.command({ ping: 1 });
-    console.log(`Connect to database`);
+    await client.connect();
+    const db = client.db('startup');
+    userCollection = db.collection('user');
+    scoreCollection = db.collection('score');
+    console.log('Connected to database');
   } catch (ex) {
     console.log(`Unable to connect to database with ${url} because ${ex.message}`);
     process.exit(1);
   }
-})();
+}
+
 
 function getUser(email) {
   return userCollection.findOne({ email: email });
@@ -49,6 +53,7 @@ function getHighScores() {
 }
 
 module.exports = {
+  initDb,
   getUser,
   getUserByToken,
   addUser,
