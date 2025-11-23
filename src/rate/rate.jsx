@@ -5,37 +5,13 @@ import { RateGame } from './rateGame';
 
 export function Rate(props) {
   return (
-  <>
-    {/* Community/event activity feed — flush left */}
-    <div
-      style={{
-        position: "fixed",
-        top: "50%",
-        left: "40px",
-        transform: "translateY(-50%)",
-        width: "300px",
-        background: "rgba(28,28,28,0.97)",
-        borderRadius: "10px",
-        color: "white",
-        boxShadow: "0 4px 8px rgba(0,0,0,0.5)",
-        zIndex: 900,
-        padding: "1em",
-      }}
-    >
-      <Players userName={props.userName} />
-    </div>
-
-    {/* Centered Rating UI */}
-    <main
-      className="bg-secondary"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ maxWidth: 420 }}>
+    <main className="bg-secondary rate-main" style={{ display: "flex",  gap: "32px", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "flex-start" }}>
+      {/* Community/event activity feed */}
+      <div style={{ flex: "1 280px", maxWidth: 300, margin: "32px 32px 0 0" }}>
+        <Players userName={props.userName} />
+      </div>
+      {/* Rating UI */}
+      <div style={{ flex: "2 400px", maxWidth: 420 }}>
         <RateGame userName={props.userName} />
       </div>
     </main>

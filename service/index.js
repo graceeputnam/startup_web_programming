@@ -5,25 +5,28 @@ const express = require('express');
 const uuid = require('uuid');
 const app = express();
 const DB = require('./database.js');
-const authCookieName = 'token';
 const { peerProxy } = require('./peerProxy.js');
 
-// The service port. In production the front-end code is statically hosted by the service on the same port.
-const port = process.argv.length > 2 ? process.argv[2] : 4000;
+const authCookieName = 'token';
+
+// The service port may be set on the command line
+//const port = process.argv.length > 2 ? process.argv[2] : 4000;
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
+
 // JSON body parsing using built-in middleware
 app.use(express.json());
 
 // Use the cookie parser middleware for tracking authentication tokens
 app.use(cookieParser());
 
-// Serve up the front-end static content hosting
+// Serve up the applications static content
 app.use(express.static('public'));
 
 // Router for service endpoints
-var apiRouter = express.Router();
+const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-// CreateAuth a new user
+// CreateAuth token for a new user
 apiRouter.post('/auth/create', async (req, res) => {
   if (await findUser('email', req.body.email)) {
     res.status(409).send({ msg: 'Existing user' });
@@ -35,7 +38,7 @@ apiRouter.post('/auth/create', async (req, res) => {
   }
 });
 
-// GetAuth login an existing user
+// GetAuth token for the provided credentials
 apiRouter.post('/auth/login', async (req, res) => {
   const user = await findUser('email', req.body.email);
   if (user) {
@@ -50,7 +53,7 @@ apiRouter.post('/auth/login', async (req, res) => {
   res.status(401).send({ msg: 'Unauthorized' });
 });
 
-// DeleteAuth logout a user
+// DeleteAuth token if stored in cookie
 apiRouter.delete('/auth/logout', async (req, res) => {
   const user = await findUser('token', req.cookies[authCookieName]);
   if (user) {
@@ -72,13 +75,13 @@ const verifyAuth = async (req, res, next) => {
 };
 
 // GetScores
-apiRouter.get('/scores', verifyAuth, async (_req, res) => {
+apiRouter.get('/view_ratings', verifyAuth, async (req, res) => {
   const scores = await DB.getHighScores();
   res.send(scores);
 });
 
 // SubmitScore
-apiRouter.post('/score', verifyAuth, async (req, res) => {
+apiRouter.post('/view_ratings', verifyAuth, async (req, res) => {
   const scores = updateScores(req.body);
   res.send(scores);
 });
@@ -90,7 +93,7 @@ app.use(function (err, req, res, next) {
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
-  res.sendFile('index.html', { root: 'public' });
+ res.sendFile('index.html', { root: 'public' });
 });
 
 // updateScores considers a new score for inclusion in the high scores.

@@ -15,9 +15,9 @@ export function Players(props) {
       GameNotifier.removeHandler(handleGameEvent);
     };
   });
-
+  
   function handleGameEvent(event) {
-    setEvent([...events, event]);
+    setEvent(prevEvents => [...prevEvents, event]);
   }
 
   function createMessageArray() {
