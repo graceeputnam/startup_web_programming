@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Serve up the applications static content
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
 // Router for service endpoints
 const apiRouter = express.Router();
@@ -91,9 +91,9 @@ app.use(function (err, req, res, next) {
 });
 
 // Return the application's default page if the path is unknown
-//app.use((_req, res) => {
-//  res.sendFile('index.html', { root: 'public' });
-//});
+app.use((_req, res) => {
+ res.sendFile('index.html', { root: 'public' });
+});
 
 // updateScores considers a new score for inclusion in the high scores.
 async function updateScores(newScore) {
