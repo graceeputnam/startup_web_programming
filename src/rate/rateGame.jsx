@@ -6,22 +6,32 @@ function StarRating({ rating, setRating }) {
   return (
     <div className="stars">
       {[1, 2, 3, 4, 5].map(star => (
-        <label
-          key={star}
-          htmlFor={`star${star}`}
-          style={{
-            cursor: 'pointer',
-            color: rating >= star ? '#FFD700' : '#999',
-            fontSize: '2rem'
-          }}
-          onClick={() => setRating(star)}
-        >
-          &#9733;
-        </label>
-        ))}
+        <span key={star}>
+          <input
+            type="radio"
+            id={`star${star}`}
+            name="rating"
+            value={star}
+            style={{ display: "none" }}
+            checked={rating === star}
+            onChange={() => setRating(star)}
+          />
+          <label
+            htmlFor={`star${star}`}
+            style={{
+              cursor: 'pointer',
+              color: rating >= star ? '#FFD700' : '#999',
+              fontSize: '2rem'
+            }}
+          >
+            &#9733;
+          </label>
+        </span>
+      ))}
     </div>
   );
 }
+
 
 export function RateGame({ userName }) {
   const [showName, setShowName] = useState('');
@@ -53,6 +63,7 @@ export function RateGame({ userName }) {
       GameEvent.End, ratingData
       
     );
+    
     setShowName('');
     setRating(0);
   };
