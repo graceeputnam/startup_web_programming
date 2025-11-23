@@ -19,7 +19,7 @@ class GameEventNotifier {
 
   constructor() {
     // Change to your back-end port (4000 if that's what you're running)
-    const port = 4000;
+    const port = 3000;
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}`);
 
