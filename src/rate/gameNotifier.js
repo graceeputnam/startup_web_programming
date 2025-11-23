@@ -15,29 +15,46 @@ class EventMessage {
 class GameEventNotifier {
   events = [];
   handlers = [];
+
   constructor() {
-    // Simulates ongoing community ratings (every 5s)
-    setInterval(() => {
-      const score = Math.floor(Math.random() * 5) + 1;
-      const date = new Date().toLocaleString();
-      const userName = ['Eich', 'Tim', 'Ada', 'Chloe', 'Jim'][Math.floor(Math.random() * 5)];
-      this.broadcastEvent(userName, GameEvent.End, { name: 'Random Show', score, date });
-    }, 5000);
+    const port = 4000;
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
+    this.socket.onopen = (event) => {
+      this.receiveEvent(new EventMessage('Simon', GameEvent.System, { msg: 'connected' }));
+    };
+    this.socket.onclose = (event) => {
+      this.receiveEvent(new EventMessage('Simon', GameEvent.System, { msg: 'disconnected' }));
+    };
+    this.socket.onmessage = async (msg) => {
+      try {
+        const event = JSON.parse(await msg.data.text());
+        this.receiveEvent(event);
+      } catch {}
+    };
   }
+
   broadcastEvent(from, type, value) {
     const event = new EventMessage(from, type, value);
-    this.receiveEvent(event);
+    this.socket.send(JSON.stringify(event));
   }
+
   addHandler(handler) {
     this.handlers.push(handler);
   }
 
   removeHandler(handler) {
-    this.handlers = this.handlers.filter((h) => h !== handler);
+    this.handlers.filter((h) => h !== handler);
   }
+
   receiveEvent(event) {
     this.events.push(event);
-    this.handlers.forEach(handler => handler(event));
+
+    this.events.forEach((e) => {
+      this.handlers.forEach((handler) => {
+        handler(e);
+      });
+    });
   }
 }
 
