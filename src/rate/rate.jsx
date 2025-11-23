@@ -15,5 +15,7 @@ export function Rate(props) {
         <RateGame userName={props.userName} />
       </div>
     </main>
-  );
+  </>
+);
+
 }
